@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="歩行速度と認知症リスクの関係を3問でセルフチェック。竹田企画">
+<title>脳健康度セルフチェック｜歩く速さと認知症</title>
+<style>
+  :root {
+    --bg: #1A3018;
+    --bg-card: #243D21;
+    --text: #FFFFFF;
+    --text-muted: rgba(255, 255, 255, 0.75);
+    --accent: #E8A020;
+    --accent-soft: rgba(232, 160, 32, 0.15);
+    --highlight: #4FC3F7;
+    --danger: #EF5350;
+    --ok: #66BB6A;
+    --warn: #FFA726;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --radius: 16px;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+    line-height: 1.7;
+    font-size: 18px;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 20px 48px;
+  }
+
+  header {
+    text-align: center;
+    padding: 24px 0 16px;
+    border-bottom: 1px solid var(--accent-soft);
+    margin-bottom: 32px;
+  }
+  header .brand {
+    color: var(--text-muted);
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  header h1 {
+    font-size: 28px;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  header h1 .accent { color: var(--accent); }
+  header .sub {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: 12px;
+  }
+
+  /* Progress */
+  .progress {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    justify-content: center;
+  }
+  .progress .dot {
+    width: 40px;
+    height: 6px;
+    background: var(--accent-soft);
+    border-radius: 3px;
+    transition: background 0.3s ease;
+  }
+  .progress .dot.active { background: var(--accent); }
+  .progress .dot.done { background: var(--highlight); }
+
+  /* Question card */
+  .card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+    border: 1px solid var(--accent-soft);
+  }
+  .card .q-number {
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .card .q-text {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    line-height: 1.5;
+  }
+  .card .q-hint {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 0 0 20px;
+  }
+
+  .choices {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .choice {
+    background: transparent;
+    color: var(--text);
+    border: 2px solid var(--accent-soft);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    width: 100%;
+  }
+  .choice:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .choice:active {
+    transform: scale(0.98);
+  }
+  .choice .num {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    margin-right: 12px;
+    font-weight: 700;
+  }
+
+  /* Result */
+  .result {
+    display: none;
+    animation: fadeIn 0.5s ease;
+  }
+  .result.show { display: block; }
+
+  .score-badge {
+    text-align: center;
+    padding: 32px 20px;
+    border-radius: var(--radius);
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .score-badge.ok { background: linear-gradient(135deg, #2E5D33, #1A3018); border: 2px solid var(--ok); }
+  .score-badge.warn { background: linear-gradient(135deg, #5D4A1A, #1A3018); border: 2px solid var(--warn); }
+  .score-badge.danger { background: linear-gradient(135deg, #5D2222, #1A3018); border: 2px solid var(--danger); }
+
+  .score-badge .score-label {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+  }
+  .score-badge .score-level {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 8px 0;
+  }
+  .score-badge.ok .score-level { color: var(--ok); }
+  .score-badge.warn .score-level { color: var(--warn); }
+  .score-badge.danger .score-level { color: var(--danger); }
+  .score-badge .score-desc {
+    font-size: 16px;
+    color: var(--text-muted);
+  }
+
+  .advice {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--accent);
+  }
+  .advice h3 {
+    color: var(--accent);
+    margin: 0 0 12px;
+    font-size: 18px;
+  }
+  .advice ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .advice li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+  .advice li::marker { color: var(--accent); }
+
+  .videos {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .videos h3 {
+    margin: 0 0 16px;
+    color: var(--highlight);
+    font-size: 18px;
+  }
+  .video-link {
+    display: block;
+    padding: 14px 18px;
+    background: rgba(79, 195, 247, 0.08);
+    border: 1px solid rgba(79, 195, 247, 0.25);
+    border-radius: 10px;
+    color: var(--text);
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+  }
+  .video-link:hover {
+    background: rgba(79, 195, 247, 0.15);
+    border-color: var(--highlight);
+  }
+  .video-link .ep {
+    font-size: 12px;
+    color: var(--highlight);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .video-link .title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  .restart {
+    display: block;
+    width: 100%;
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 8px;
+    transition: all 0.2s ease;
+  }
+  .restart:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 12px;
+    padding: 32px 0 16px;
+    border-top: 1px solid var(--accent-soft);
+    margin-top: 32px;
+  }
+  footer .sources {
+    margin-top: 8px;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .question-area { animation: fadeIn 0.4s ease; }
+
+  @media (max-width: 480px) {
+    header h1 { font-size: 22px; }
+    .card .q-text { font-size: 19px; }
+    .choice { font-size: 16px; padding: 14px 16px; }
+    .score-badge .score-level { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="brand">TAKEDA KIKAKU</div>
+    <h1>脳健康度<span class="accent">セルフチェック</span></h1>
+    <div class="sub">歩く速さから読み解く、脳からのメッセージ</div>
+  </header>
+
+  <div class="progress" id="progress">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <div id="question-area" class="question-area">
+    <!-- JavaScriptで描画 -->
+  </div>
+
+  <div id="result" class="result">
+    <div id="score-badge" class="score-badge"></div>
+    <div id="advice" class="advice"></div>
+    <div class="videos">
+      <h3>▶ 詳しく学びたい方は動画シリーズへ</h3>
+      <a class="video-link" href="#" id="video-ep1" target="_blank" rel="noopener">
+        <div class="ep">EPISODE 01</div>
+        <div class="title">歩く速さで認知症リスクが1.89倍に</div>
+      </a>
+      <a class="video-link" href="#" id="video-ep2" target="_blank" rel="noopener">
+        <div class="ep">EPISODE 02</div>
+        <div class="title">1日1時間の歩行で発症リスク18.1%減</div>
+      </a>
+      <a class="video-link" href="#" id="video-ep3" target="_blank" rel="noopener">
+        <div class="ep">EPISODE 03</div>
+        <div class="title">速歩きが海馬を守る(久山町研究)</div>
+      </a>
+    </div>
+    <button class="restart" onclick="restart()">もう一度チェックする</button>
+  </div>
+
+  <footer>
+    <div>© 竹田企画 / エビデンスに基づく健康情報</div>
+    <div class="sources">
+      出典: Quan M et al. 2017 / 遠又靖丈ら 2018 / 多治見昂洋ら 2023
+    </div>
+  </footer>
+
+</div>
+
+<script>
+// ====================================================================
+// 脳健康度セルフチェック
+// 3問の回答からスコアを計算し、パーソナライズされたアドバイスを返す
+// ====================================================================
+
+// 動画シリーズのURLプレースホルダー
+// 実デプロイ時にYouTube動画URLに差し替える
+const VIDEO_URLS = {
+  ep1: 'https://www.youtube.com/@takedakikaku',
+  ep2: 'https://www.youtube.com/@takedakikaku',
+  ep3: 'https://www.youtube.com/@takedakikaku',
+};
+
+const questions = [
+  {
+    id: 'q1',
+    number: 'Q1 / 3',
+    text: '10メートルを歩くのに何秒かかりますか？',
+    hint: '横断歩道の白線約10本分。普段の速さでお答えください。',
+    source: 'Quan M et al. 2017',
+    choices: [
+      { label: '8秒以内',  score: 3, key: 'fast' },
+      { label: '9〜10秒',  score: 3, key: 'normal' },
+      { label: '11〜13秒', score: 1, key: 'slow' },
+      { label: '14秒以上', score: 0, key: 'very_slow' },
+    ],
+  },
+  {
+    id: 'q2',
+    number: 'Q2 / 3',
+    text: '1日平均でどれくらい歩いていますか？',
+    hint: '通勤・買い物・散歩など合計で。',
+    source: '遠又靖丈ら 2018',
+    choices: [
+      { label: '1時間以上',     score: 3, key: 'long' },
+      { label: '30分〜1時間',   score: 2, key: 'medium' },
+      { label: '15〜30分',      score: 1, key: 'short' },
+      { label: '15分未満',      score: 0, key: 'very_short' },
+    ],
+  },
+  {
+    id: 'q3',
+    number: 'Q3 / 3',
+    text: '5年前と比べて歩く速さはどう変わりましたか？',
+    hint: 'ご自身の感覚で構いません。',
+    source: '多治見昂洋ら 2023',
+    choices: [
+      { label: '変わらない、または速くなった', score: 3, key: 'same' },
+      { label: '少し遅くなった気がする',       score: 1, key: 'slightly_slower' },
+      { label: '明らかに遅くなった',           score: 0, key: 'clearly_slower' },
+    ],
+  },
+];
+
+let currentQ = 0;
+let answers = [];
+
+// ---- 描画 ----
+function renderQuestion() {
+  const q = questions[currentQ];
+  const area = document.getElementById('question-area');
+  area.innerHTML = `
+    <div class="card">
+      <div class="q-number">${q.number}</div>
+      <h2 class="q-text">${q.text}</h2>
+      <p class="q-hint">${q.hint}</p>
+      <div class="choices">
+        ${q.choices.map((c, i) => `
+          <button class="choice" onclick="selectAnswer(${i})">
+            <span class="num">${String.fromCharCode(65 + i)}</span>${c.label}
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `;
+  updateProgress();
+}
+
+function updateProgress() {
+  const dots = document.querySelectorAll('.progress .dot');
+  dots.forEach((dot, i) => {
+    dot.classList.remove('active', 'done');
+    if (i < currentQ) dot.classList.add('done');
+    else if (i === currentQ) dot.classList.add('active');
+  });
+}
+
+function selectAnswer(choiceIdx) {
+  const q = questions[currentQ];
+  answers.push({ q: q.id, choice: q.choices[choiceIdx] });
+  currentQ++;
+
+  if (currentQ < questions.length) {
+    renderQuestion();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    showResult();
+  }
+}
+
+// ---- 結果計算 ----
+function calculateResult() {
+  const totalScore = answers.reduce((sum, a) => sum + a.choice.score, 0);
+  const max = 9; // 3+3+3
+
+  let level, desc, adviceTitle, advice, color;
+
+  if (totalScore >= 7) {
+    level = '良好';
+    color = 'ok';
+    desc = 'あなたの歩行習慣は脳の健康を守っています';
+    adviceTitle = 'この状態を続けるために';
+    advice = [
+      '現在の歩行習慣を維持しましょう',
+      '週に1回、10メートルを歩いてタイムを測る習慣を推奨',
+      '速歩きを意識するとさらに効果的です(久山町研究)',
+    ];
+  } else if (totalScore >= 4) {
+    level = '注意';
+    color = 'warn';
+    desc = '少しの改善で脳の健康度が大きく変わる段階です';
+    adviceTitle = '今日から始められる3つのこと';
+    advice = [
+      '毎日の歩行時間に+15分を追加してみましょう',
+      '信号待ちでかかと上げ運動を20回',
+      '階段を1フロア分使う習慣をつくる',
+    ];
+  } else {
+    level = '要改善';
+    color = 'danger';
+    desc = '歩行機能の低下サインが出ている可能性があります';
+    adviceTitle = '優先度の高い行動';
+    advice = [
+      'かかりつけ医に歩行速度の変化について相談を',
+      '無理のない範囲で10分の散歩から始める',
+      '速歩きではなく、まずは継続できるペースで',
+      '家族と一緒に歩く時間をつくる',
+    ];
+  }
+
+  return { level, color, desc, adviceTitle, advice, totalScore, max };
+}
+
+// ---- 結果表示 ----
+function showResult() {
+  const { level, color, desc, adviceTitle, advice, totalScore, max } = calculateResult();
+
+  document.getElementById('question-area').style.display = 'none';
+  document.getElementById('progress').style.display = 'none';
+
+  const badge = document.getElementById('score-badge');
+  badge.className = `score-badge ${color}`;
+  badge.innerHTML = `
+    <div class="score-label">あなたの脳健康度</div>
+    <div class="score-level">${level}</div>
+    <div class="score-desc">${desc}</div>
+    <div class="score-desc" style="margin-top: 8px; font-size: 13px;">スコア: ${totalScore} / ${max}</div>
+  `;
+
+  const adviceEl = document.getElementById('advice');
+  adviceEl.innerHTML = `
+    <h3>${adviceTitle}</h3>
+    <ul>${advice.map(a => `<li>${a}</li>`).join('')}</ul>
+  `;
+
+  // 動画リンク
+  document.getElementById('video-ep1').href = VIDEO_URLS.ep1;
+  document.getElementById('video-ep2').href = VIDEO_URLS.ep2;
+  document.getElementById('video-ep3').href = VIDEO_URLS.ep3;
+
+  document.getElementById('result').classList.add('show');
+
+  // 結果履歴をlocalStorageに保存（任意）
+  try {
+    const history = JSON.parse(localStorage.getItem('brain_quiz_history') || '[]');
+    history.push({
+      date: new Date().toISOString(),
+      score: totalScore,
+      level,
+    });
+    localStorage.setItem('brain_quiz_history', JSON.stringify(history.slice(-10)));
+  } catch (e) { /* noop */ }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ---- リスタート ----
+function restart() {
+  currentQ = 0;
+  answers = [];
+  document.getElementById('result').classList.remove('show');
+  document.getElementById('question-area').style.display = 'block';
+  document.getElementById('progress').style.display = 'flex';
+  renderQuestion();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ---- 初期化 ----
+renderQuestion();
+</script>
+</body>
+</html>
