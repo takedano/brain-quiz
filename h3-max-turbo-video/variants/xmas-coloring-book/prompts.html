@@ -1,0 +1,383 @@
+<title>こども英語ぬりえ クリスマスセール</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{ --bg:#F3EFE4; --bg-2:#E8E2D3; --card:#FBF8F0; --ink:#24243C; --ink-2:#5E5C72; --line:#D6CFBB; --red:#D9463F; --green:#2F7A5A; --gold:#E9B94B; --shadow:3px 5px 10px rgba(60,45,20,.2); }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#1C1F2A; --bg-2:#252939; --card:#2A2E3E; --ink:#EEE9DA; --ink-2:#B3AFA2; --line:#3F4356; --shadow:3px 5px 12px rgba(0,0,0,.45); } }
+:root[data-theme="dark"]{ --bg:#1C1F2A; --bg-2:#252939; --card:#2A2E3E; --ink:#EEE9DA; --ink-2:#B3AFA2; --line:#3F4356; --shadow:3px 5px 12px rgba(0,0,0,.45); }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Zen Kaku Gothic New','Hiragino Sans','Yu Gothic',sans-serif;font-size:15px;line-height:1.75}
+.wrap{max-width:1000px;margin:0 auto;padding:40px 24px 80px}
+header{border-bottom:3px solid var(--red);padding-bottom:18px;margin-bottom:28px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2)}
+h1{font-size:clamp(28px,4.5vw,44px);font-weight:900;line-height:1.15;margin:6px 0 10px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--red)}
+.lead{max-width:62ch;margin:0;color:var(--ink-2)}
+.badge{background:var(--red);color:#fff;font-weight:900;font-size:34px;line-height:1;padding:14px 18px;border-radius:6px 6px 6px 6px;box-shadow:var(--shadow);position:relative;white-space:nowrap}
+.badge small{display:block;font-size:12px;font-weight:700;letter-spacing:.1em;margin-top:6px;opacity:.9}
+h2{font-size:20px;font-weight:900;margin:44px 0 14px;display:flex;align-items:center;gap:12px}
+h2:after{content:"";flex:1;height:2px;background:var(--line)}
+.swaps{display:grid;gap:6px}
+.swap{display:grid;grid-template-columns:1fr 28px 1.3fr;align-items:center;gap:10px;padding:8px 14px;background:var(--card);box-shadow:var(--shadow);font-size:14px}
+.swap .from{color:var(--ink-2)} .swap .arrow{color:var(--red);font-weight:900;text-align:center} .swap .to{font-weight:700}
+table{width:100%;border-collapse:collapse;background:var(--card);box-shadow:var(--shadow);font-size:14px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:11.5px;letter-spacing:.08em;color:var(--ink-2);font-weight:700}
+td.n{font-family:'IBM Plex Mono',monospace;font-weight:600;width:36px} td.tc{font-family:'IBM Plex Mono',monospace;white-space:nowrap;font-variant-numeric:tabular-nums}
+code{font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:var(--bg-2);padding:1px 6px;border-radius:3px}
+.flag{display:inline-block;margin-left:8px;font-size:11px;font-weight:700;color:#fff;background:var(--gold);padding:0 7px;border-radius:3px;vertical-align:1px}
+.tablewrap{overflow-x:auto}
+.palette{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.sw{background:var(--card);padding:8px;box-shadow:var(--shadow);display:grid;gap:2px;font-size:12.5px}
+.sw i{display:block;height:52px;border-radius:3px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)} .sw b{margin-top:4px} .sw .hex{font-family:'IBM Plex Mono',monospace;color:var(--ink-2)} .sw small{color:var(--ink-2);line-height:1.4}
+.howto{background:var(--card);border-left:6px solid var(--green);padding:14px 18px;box-shadow:var(--shadow)}
+.howto ol{margin:0;padding-left:20px} .howto li{margin:4px 0}
+.pbox{background:var(--card);box-shadow:var(--shadow);margin-top:16px}
+.phead{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 18px;border-bottom:1px solid var(--line)}
+.phead h3{margin:0;font-size:16px;font-weight:900} .phead p{margin:2px 0 0;font-size:13px;color:var(--ink-2)}
+.copy{flex:none;background:var(--red);color:#fff;border:0;border-radius:4px;padding:8px 16px;font:inherit;font-weight:700;cursor:pointer}
+.copy:hover{filter:brightness(1.08)} .copy:focus-visible{outline:2px solid var(--ink);outline-offset:2px} .copy.done{background:var(--green)}
+pre{margin:0;padding:14px 18px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.6;overflow-x:auto;white-space:pre-wrap;word-break:break-word;max-height:420px;overflow-y:auto}
+footer{margin-top:50px;font-size:12.5px;color:var(--ink-2);border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:700px){ header{grid-template-columns:1fr} .swap{grid-template-columns:1fr} .swap .arrow{display:none} }
+</style>
+<div class="wrap">
+<header>
+  <div>
+    <div class="eyebrow">AI video prompt kit — Seedance 2.0 / Higgsfield — 14.4s</div>
+    <h1>こども英語ぬりえ <em>クリスマスセール</em> 告知動画</h1>
+    <p class="lead">H3 Max Turbo 告知動画の12カット構成をそのまま使い、文言・色・小道具・主人公をクリスマス商戦向けに差し替えたプロンプト一式です。下のボックスの「コピー」で貼り付けて生成してください。</p>
+  </div>
+  <div class="badge">30% OFF<small>XMAS SALE</small></div>
+</header>
+
+<h2>元動画からの差し替え</h2>
+<div class="swaps"><div class="swap"><span class="from">クラフト紙（ベージュ）</span><span class="arrow" aria-hidden="true">→</span><span class="to">雪のような白い紙 ＋ 紙の雪片</span></div><div class="swap"><span class="from">コーラル / ブルー / ティール</span><span class="arrow" aria-hidden="true">→</span><span class="to">クリスマス赤 / モミの緑 / 金</span></div><div class="swap"><span class="from">会社員の女性</span><span class="arrow" aria-hidden="true">→</span><span class="to">エルフ帽の子ども（紙人形）</span></div><div class="swap"><span class="from">AI UPDATE のメモ</span><span class="arrow" aria-hidden="true">→</span><span class="to">「XMAS SALE」のギフトタグ</span></div><div class="swap"><span class="from">スタンプ → 朗報！</span><span class="arrow" aria-hidden="true">→</span><span class="to">金の星スタンプ → クリスマスセール！</span></div><div class="swap"><span class="from">H3 Max Turbo登場</span><span class="arrow" aria-hidden="true">→</span><span class="to">こども英語ぬりえ 登場（ぬりえページが扇状に）</span></div><div class="swap"><span class="from">ストップウォッチ：速度2倍</span><span class="arrow" aria-hidden="true">→</span><span class="to">大きなクレヨン：ぬって → おぼえる（APPLE）</span></div><div class="swap"><span class="from">ハサミ：コスト半分</span><span class="arrow" aria-hidden="true">→</span><span class="to">ハサミ：30% OFF（値札を切る）</span></div><div class="swap"><span class="from">2枚のフレーム：品質ほぼそのまま</span><span class="arrow" aria-hidden="true">→</span><span class="to">2枚のページ（線画→彩色）：プレゼントにぴったり</span></div><div class="swap"><span class="from">くしゃくしゃ → ゴミ箱</span><span class="arrow" aria-hidden="true">→</span><span class="to">折りたたんでギフト箱 → ツリーの下へ</span></div><div class="swap"><span class="from">期間限定プロモーション</span><span class="arrow" aria-hidden="true">→</span><span class="to">クリスマスセール開催中 / 今すぐチェック</span></div><div class="swap"><span class="from">H3 MAX TURBO ロゴ</span><span class="arrow" aria-hidden="true">→</span><span class="to">ブランドロゴ（要差し替え）</span></div></div>
+
+<h2>先に決める値</h2>
+<div class="tablewrap"><table><thead><tr><th>変数</th><th>この版の値</th><th>どこに出るか</th></tr></thead><tbody><tr><td><code>{PRODUCT}</code></td><td>こども英語ぬりえ</td><td>商品名</td></tr><tr><td><code>{LOGO}</code></td><td>KIDS ENGLISH COLORING<span class=flag>仮置き・要差し替え</span></td><td>エンドカードのロゴ</td></tr><tr><td><code>{HOOK}</code></td><td>クリスマス セール！</td><td>冒頭の爆発吹き出し</td></tr><tr><td><code>{ANNOUNCE}</code></td><td>こども英語ぬりえ 登場</td><td>登場カード</td></tr><tr><td><code>{BENEFIT1}</code></td><td>ぬって / おぼえる ＋ APPLE</td><td>売り文句1（クレヨンとりんご）</td></tr><tr><td><code>{BENEFIT2}</code></td><td>30% OFF</td><td>売り文句2（ハサミと値札）</td></tr><tr><td><code>{PERIOD}</code></td><td>12/25まで<span class=flag>仮置き・要差し替え</span></td><td>期間カード</td></tr><tr><td><code>{BENEFIT3}</code></td><td>プレゼントに ぴったり</td><td>売り文句3（線画と彩色の2ページ）</td></tr><tr><td><code>{CTA}</code></td><td>クリスマスセール開催中 / 今すぐチェック</td><td>CTAカード</td></tr></tbody></table></div>
+
+<h2>色の設計</h2>
+<div class="palette"><div class="sw"><i style="background:#F3EFE4"></i><b>雪の紙</b><span class="hex">#F3EFE4</span><small>背景</small></div><div class="sw"><i style="background:#D9463F"></i><b>クリスマス赤</b><span class="hex">#D9463F</span><small>吹き出し・値札・ギフト箱・リボン</small></div><div class="sw"><i style="background:#2F7A5A"></i><b>モミの緑</b><span class="hex">#2F7A5A</span><small>エルフ帽・ツリー・リボン・下線</small></div><div class="sw"><i style="background:#E9B94B"></i><b>金</b><span class="hex">#E9B94B</span><small>星スタンプ・タグの紐・ツリーの星</small></div><div class="sw"><i style="background:#8CC5E3"></i><b>アイスブルー</b><span class="hex">#8CC5E3</span><small>クレヨン・雪片の影</small></div><div class="sw"><i style="background:#C9A97C"></i><b>クラフト</b><span class="hex">#C9A97C</span><small>ギフトタグ・トナカイ</small></div><div class="sw"><i style="background:#24243C"></i><b>インク</b><span class="hex">#24243C</span><small>見出し・線画・ロゴ</small></div></div>
+
+<h2>カット表（12カット）</h2>
+<div class="tablewrap"><table><thead><tr><th>#</th><th>秒</th><th>画面に出るもの</th><th>動き</th></tr></thead><tbody><tr><td class="n">1</td><td class="tc">0.00–0.55</td><td>ギフトタグ「XMAS SALE」、雪片、エルフ帽の子ども</td><td>タグがひらひら落ちて着地。子どもが右から登場</td></tr><tr><td class="n">2</td><td class="tc">0.55–1.40</td><td>金の星スタンプ、赤い吹き出し「クリスマス セール！」</td><td>スタンプがドン → 吹き出しが弾ける。紙片が飛ぶ。子どもがジャンプ</td></tr><tr><td class="n">3</td><td class="tc">1.40–2.95</td><td>カード「こども英語ぬりえ 登場」、ぬりえページ4〜5枚</td><td>アコーディオンで開く → ページが扇状に広がる</td></tr><tr><td class="n">4</td><td class="tc">2.95–3.30</td><td>赤白ストライプのリボン</td><td>子どもが引っ張って右から左へワイプ</td></tr><tr><td class="n">5</td><td class="tc">3.30–4.60</td><td>巨大クレヨン、線画のりんご、「ぬって」「おぼえる」「APPLE」</td><td>りんごが赤く塗られる。文字が順にポン。単語タグがポン</td></tr><tr><td class="n">6</td><td class="tc">4.60–5.65</td><td>赤い紙（点線入り）、大きなハサミ</td><td>点線に沿ってジョキジョキ切る</td></tr><tr><td class="n">7</td><td class="tc">5.65–6.75</td><td>値札タグ「30% OFF」、小カード「12/25まで」</td><td>下半分が落ちて値札の形に。期間カードがポン</td></tr><tr><td class="n">8</td><td class="tc">6.75–8.85</td><td>2枚のページ（線画／彩色のトナカイ）、「プレゼントに ぴったり」</td><td>屏風のように開く。右ページが揺れる。文字がタイプライター風</td></tr><tr><td class="n">9</td><td class="tc">8.85–10.20</td><td>赤いギフト箱、緑の紙のツリー</td><td>ページを折ってギフト箱に。ツリーの下へ滑る。子ども退場</td></tr><tr><td class="n">10</td><td class="tc">10.20–12.10</td><td>CTAカード、クレヨン立て、赤と緑のリボン</td><td>箱が開いてカードが広がる。子どもが飛び出す。リボンが巻きつく</td></tr><tr><td class="n">11</td><td class="tc">12.10–12.40</td><td>紙のページ</td><td>紙を折るように転換</td></tr><tr><td class="n">12</td><td class="tc">12.40–14.40</td><td>ロゴ ＋ 小さな「30% OFF」タグ</td><td>静止して終了</td></tr></tbody></table></div>
+
+<h2>使い方</h2>
+<div class="howto"><ol>
+  <li>14秒を1回で生成できるモデルなら <b>フルプロンプト</b> をコピーして貼り付ける。</li>
+  <li>1回 5秒前後しか作れないモデルなら <b>Part A → B → C</b> を順に生成し、動画編集ソフトで並べてつなぐ。つなぎ目は「紙の転換」で揃えてあります。</li>
+  <li>スタイル参照画像として元動画のキーフレーム（frames フォルダ）を添え、「構図と質感だけ参考、色はプロンプト通り」と添える。</li>
+  <li>ロゴと販売期間は仮置きです。生成前に必ず実際の値に直してください。</li>
+</ol></div>
+
+<h2>プロンプト</h2>
+<section class="pbox" id="full">
+  <div class="phead"><div><h3>フルプロンプト（14.4秒・1本用）</h3><p>スタイル定義 ＋ ショット別タイムライン ＋ エフェクト一覧 ＋ 密度マップ ＋ エネルギーアーク</p></div><button type="button" class="copy" data-target="t-full">コピー</button></div>
+  <pre id="t-full">STYLE: Handcrafted paper-cutout stop-motion animation, 3D-rendered papercraft look, Christmas
+craft-corner mood. Every object is a flat piece of 1-2mm thick card stock with visible white paper
+edges and a soft, short drop shadow. Background is a fixed sheet of snow-white textured paper
+(#F3EFE4) with fine fiber grain, a gentle vignette, and a few small paper snowflakes that drift
+down slowly through the whole video. Fixed camera, straight-on, slight top-down tilt; only the
+paper objects move. Palette: Christmas red #D9463F, pine green #2F7A5A, gold #E9B94B, ice blue
+#8CC5E3, kraft brown #C9A97C, ink navy #24243C, off-white card #FBF8F0.
+Character: a paper-doll child about six years old, short brown hair, a green pointed elf hat with
+a white pom-pom, a red knit sweater with one white snowflake, green trousers, yellow boots, round
+paper pins at shoulders, elbows and knees. The child stays on the right side of the frame and
+interacts with every prop (catches, colors, cuts, folds, raises arms), always cheerful.
+Coloring-book pages are white paper with thick navy line art (reindeer, snowman, Christmas tree,
+gingerbread man) and an English word in rounded capitals printed under each picture.
+Japanese text is heavy black gothic type (Noto Sans JP Black), also cut from paper with thickness
+and shadow; English words are rounded bold capitals in navy. Text pops in with a bouncy overshoot
+(scale 0 → 1.1 → 1.0) or unfolds like an accordion. No hard cuts: every transition is a paper
+gesture (ribbon wipe, folding screen, fold into a gift box, page fold).
+Aspect ratio 7:4 (1260x720), 24fps, 14.4 seconds. No narration; bright, playful sleigh-bell BGM
+with paper foley (rustle, stamp, crayon scribble, snip, fold) on each beat.
+
+## SHOT-BY-SHOT EFFECTS TIMELINE
+
+SHOT 1 (00:00.0–00:00.85) — Gift Tag Drop
+• EFFECT: Object drop-in (gravity settle) + drifting paper snowflakes + character slide-in
+• A kraft-brown paper gift tag with a red string, reading &quot;XMAS SALE&quot; in navy capitals, flutters
+  down from the top-left, rocks once and settles tilted approx -12°. Three small white paper
+  snowflakes drift down behind it. The elf-hat child jogs in from the right edge with a bobbing
+  walk, arms swinging, boots tapping.
+• Camera fixed, straight-on. Empty snow-white paper background.
+• Tag lands at 0.4s; child reaches center-right at 0.85s.
+• Exits by the tag being covered by the star stamp in SHOT 2.
+
+SHOT 2 (00:00.85–00:01.45) — Gold Star Stamp and Burst
+• EFFECT: Impact slam (scale 1.6 → 1.0 with squash) + starburst reveal + paper confetti
+• A gold paper star-shaped stamp slams down from above onto the tag. On impact a large red
+  starburst speech bubble (sawtooth edge, 16 points, white paper edge) pops out behind it and the
+  tag is replaced by the burst reading &quot;クリスマス セール！&quot; in white heavy type on red.
+• Small red, green and gold paper flecks fly outward and fall; the child does a small jump.
+• Slam lands at 1.0s; burst fully visible at 1.2s; hold to 1.45s.
+• Exits by the burst flipping down and folding into a strip for SHOT 3.
+
+SHOT 3 (00:01.45–00:02.95) — Coloring-Book Pages Fan Out
+• EFFECT: Accordion unfold (paper pleats opening) + fan stack (staggered rotation)
+• A pleated strip of paper held by the child unfolds left-to-right into a wide white card reading
+  &quot;こども英語ぬりえ 登場&quot; (two lines, heavy black gothic).
+• Behind it, 4-5 coloring-book pages slide out and fan into a stack, each rotated 2-4° more than
+  the last: a reindeer page with &quot;REINDEER&quot;, a snowman with &quot;SNOWMAN&quot;, a tree with &quot;TREE&quot;, a
+  gingerbread man with &quot;COOKIE&quot;. Line art only, navy on white, with a red or green paper edge.
+• The child pushes the stack with both hands, leaning into it.
+• Unfold 1.45–1.85s; fan-out 1.85–2.3s; hold with a slight breathing wobble to 2.95s.
+• Exits via the candy-cane ribbon wipe in SHOT 4.
+
+SHOT 4 (00:02.95–00:03.30) — Candy-Cane Ribbon Wipe
+• EFFECT: Wipe transition (paper ribbon) — 0.35 seconds
+• The child grabs the end of a wide paper ribbon striped red and white like a candy cane and pulls
+  it across the whole frame from right to left; the ribbon covers the pages and reveals an empty
+  background.
+• Motion blur on the ribbon, slight curl at its leading edge.
+
+SHOT 5 (00:03.30–00:04.60) — Crayon: Color It, Learn It
+• EFFECT: Prop entrance + crayon scribble fill + staggered text pop + word-tag pop
+• A large paper line-art apple stands at center-left. A giant red paper crayon rolls in from the
+  left; the child catches it and scribbles across the apple: the apple fills with red in three
+  diagonal strokes, a green paper leaf pops on top.
+• &quot;ぬって&quot; pops in above-left (scale overshoot), then &quot;おぼえる&quot; pops in below it, larger,
+  0.25s later. A small white paper tag reading &quot;APPLE&quot; in rounded navy capitals pops in under the
+  apple with a bounce.
+• Crayon enters 3.3–3.6s; scribble 3.6–4.1s; &quot;ぬって&quot; at 3.75s; &quot;おぼえる&quot; at 4.0s; &quot;APPLE&quot; 4.2s.
+• Exits by the apple and crayon sliding right off-frame while the red price sheet enters from the left.
+
+SHOT 6 (00:04.60–00:05.65) — Scissors Cut the Price
+• EFFECT: Prop entrance + path-following cut + piece separation
+• A large red rectangle of paper (a price tag before it is shaped) slides in from the left with a
+  dotted cut line across its middle and a faint crossed-out old price on the lower half. Oversized
+  grey paper scissors held by the child open and close 4 times, moving right-to-left along the
+  dotted line.
+• The cut edge shows a zig-zag paper tear. This is the SIGNATURE VISUAL EFFECT of the middle
+  section: literally cutting the price.
+• Scissors start 4.9s, finish cut 5.55s.
+
+SHOT 7 (00:05.65–00:06.75) — 30% OFF Tag
+• EFFECT: Piece drop + shape morph + secondary card pop + character kick
+• The lower half of the red paper falls away and tumbles; the remaining half snaps into a classic
+  price-tag shape (pointed top with a hole and a gold string) reading &quot;30% OFF&quot; in white heavy
+  type, &quot;30%&quot; very large.
+• A small white card pops in at the upper right reading &quot;12/25まで&quot; with a tiny paper holly leaf.
+• The child kicks the fallen scrap, which slides off-frame.
+• Tag forms 5.65–5.9s; card pops 5.9s; kick 6.3–6.7s.
+• Exits by the tag flipping backward and folding into the two pages of SHOT 8.
+
+SHOT 8 (00:06.75–00:08.85) — Perfect as a Gift
+• EFFECT: Folding-screen unfold (rotate on vertical hinge) + typewriter text + subtle wobble
+• Two navy-framed coloring pages unfold like a folding screen: left panel first, right panel
+  swings open from its hinge. Left page: the reindeer in line art with &quot;REINDEER&quot; under it. Right
+  page: the same reindeer fully colored with crayon strokes (brown body, red nose, green scarf),
+  slightly shifted to show &quot;before and after&quot;.
+• The child steadies the right panel with one hand. The right panel rocks gently (approx 3°).
+• &quot;プレゼントに ぴったり&quot; types in below, one character every ~60ms, starting 7.35s.
+• Pages open 6.75–7.3s; text 7.35–7.95s; hold to 8.85s.
+• Exits as the child grabs both pages and folds them.
+
+SHOT 9 (00:08.85–00:10.20) — Fold into a Gift, Slide Under the Tree
+• EFFECT: Fold morph (pages fold into a box) + slide + settle wobble
+• The two pages fold in the child&#x27;s hands into a small red paper gift box with a gold paper bow.
+  A green paper Christmas tree with a gold star on top appears at the lower right.
+• The box slides right along the floor, bumps once, and settles under the tree; the tree wobbles
+  and the star spins half a turn. The child steps out of frame to the right.
+• Fold 8.85–9.1s; slide 9.3–10.0s; tree wobble 10.0–10.2s.
+• Exits via the box lid popping open in SHOT 10.
+
+SHOT 10 (00:10.20–00:12.10) — Sale CTA Card
+• EFFECT: Unfold reveal + character pop-up + ribbon swirl (path draw)
+• The gift box lid pops open and a sheet of off-white paper unfolds out of it and flattens into
+  a rounded CTA card: small line &quot;クリスマスセール開催中&quot; with a red underline, big line
+  &quot;今すぐチェック&quot; with a green underline. A red paper cup holding three crayons (red, green, blue)
+  sits at the right of the card.
+• The child pops up from behind the card, both arms raised, with a small hop; the elf-hat pom-pom
+  bounces.
+• A red ribbon curls around from the left and a green ribbon from the right, drawing themselves
+  along their paths and settling with a slight sway. Two more paper snowflakes drift past.
+• Unfold 10.2–10.55s; child pop 10.6s; ribbons 10.9–11.6s; hold to 12.1s.
+• Exits by the page fold in SHOT 11.
+
+SHOT 11 (00:12.10–00:12.40) — Page Fold Transition
+• EFFECT: Fold transition (page turns over its vertical center) — 0.3 seconds
+• The whole scene is a sheet of paper that folds over from the center, back-side showing plain
+  snow-white paper, wiping everything away and revealing the end card.
+
+SHOT 12 (00:12.40–00:14.40) — Logo End Card
+• EFFECT: Static hold (no effects)
+• Plain snow-white paper background. Heavy navy rounded wordmark &quot;KIDS ENGLISH COLORING&quot; centered,
+  slightly above the vertical middle, with a small red &quot;30% OFF&quot; paper tag hanging from its last
+  letter. One paper snowflake rests in a corner. Nothing moves for 2 seconds.
+• Audio drops to silence at 13.0s.
+
+## MASTER EFFECTS INVENTORY
+
+1. Object drop-in / gravity settle — used 2x (Shots 1, 7) — gift tag and price scrap land and rock.
+2. Drifting paper snowflakes — used 3x (Shots 1, 10, 12) — ambient Christmas motion, always slow.
+3. Impact slam with squash — used 1x (Shot 2) — the gold star stamp; loudest beat of the opening.
+4. Starburst reveal — used 1x (Shot 2) — the red &quot;クリスマス セール！&quot; bubble.
+5. Paper confetti / flecks — used 2x (Shots 2, 6) — red/green/gold pieces scatter on impact and cut.
+6. Accordion unfold — used 2x (Shots 3, 10) — pleated paper opens into a flat card.
+7. Fan stack (staggered rotation) — used 1x (Shot 3) — coloring pages spread like a hand of cards.
+8. Ribbon wipe — used 1x (Shot 4) — candy-cane striped ribbon transition.
+9. Crayon scribble fill — used 1x (Shot 5) — the apple fills with color in three strokes.
+10. Bouncy text pop (scale overshoot) — used 6x (Shots 2, 5, 7, 10) — every headline and the word tag.
+11. Path-following cut — used 1x (Shot 6) — scissors along the dotted line. SIGNATURE.
+12. Shape morph — used 2x (Shots 7, 9) — rectangle to tag; pages to gift box.
+13. Folding-screen unfold — used 1x (Shot 8) — hinged pages swing open.
+14. Typewriter text — used 1x (Shot 8) — &quot;プレゼントに ぴったり&quot;.
+15. Idle wobble / breathing — used 3x (Shots 3, 8, 9) — held objects and the tree rock 2-3°.
+16. Slide + settle — used 1x (Shot 9) — gift box slides under the tree.
+17. Character pop-up — used 1x (Shot 10) — arms-raised hop from behind the card.
+18. Ribbon swirl (path draw) — used 1x (Shot 10) — red and green ribbons draw along curved paths.
+19. Page fold transition — used 1x (Shot 11) — sheet folds over to reveal end card.
+20. Static hold — used 1x (Shot 12) — logo with hanging 30% OFF tag.
+
+## EFFECTS DENSITY MAP
+
+00:00–00:03 = HIGH DENSITY (drop-in, snowflakes, slide-in, slam, starburst, confetti, accordion, fan stack — 8 effects in 3s)
+00:03–00:06 = MEDIUM DENSITY (ribbon wipe, crayon fill, text pop x3, path cut — 6 effects in 3s, evenly spaced)
+00:06–00:09 = MEDIUM DENSITY (piece drop, shape morph, card pop, folding screen, typewriter, wobble — 6 effects in 3s)
+00:09–00:12 = MEDIUM DENSITY (fold morph, slide, tree wobble, unfold, pop-up, ribbon swirl — 6 effects in 3s)
+00:12–00:14.4 = LOW DENSITY (page fold, then a static logo hold — 1 effect in 2.4s)
+
+## ENERGY ARC
+
+Act 1 (0–3s) — Attention grab: three quick beats (tag drops, star stamp slams, pages fan) each
+  louder than the last. The child&#x27;s jump on the stamp is the emotional peak; snowflakes set the
+  season in the first second without a word.
+Act 2 (3–10.2s) — Three benefits at a steady march: learn by coloring, 30% off, perfect gift.
+  Each beat uses the same grammar (prop enters → headline pops → child reacts) for 1.1–2.1s.
+  The scissors cutting the price is the signature moment; folding the pages into a gift and
+  sliding it under the tree is the release that clears the stage and says &quot;buy it as a present&quot;.
+Act 3 (10.2–14.4s) — Landing: the CTA card gets the most decoration (ribbons, pop-up, crayons)
+  then a single page fold drops everything to a silent logo with the 30% OFF tag still hanging on it.</pre>
+</section>
+<section class="pbox" id="style">
+  <div class="phead"><div><h3>スタイル定義だけ</h3><p>自分で文言を変えるときは、この段落を先頭に付ける</p></div><button type="button" class="copy" data-target="t-style">コピー</button></div>
+  <pre id="t-style">STYLE: Handcrafted paper-cutout stop-motion animation, 3D-rendered papercraft look, Christmas
+craft-corner mood. Every object is a flat piece of 1-2mm thick card stock with visible white paper
+edges and a soft, short drop shadow. Background is a fixed sheet of snow-white textured paper
+(#F3EFE4) with fine fiber grain, a gentle vignette, and a few small paper snowflakes that drift
+down slowly through the whole video. Fixed camera, straight-on, slight top-down tilt; only the
+paper objects move. Palette: Christmas red #D9463F, pine green #2F7A5A, gold #E9B94B, ice blue
+#8CC5E3, kraft brown #C9A97C, ink navy #24243C, off-white card #FBF8F0.
+Character: a paper-doll child about six years old, short brown hair, a green pointed elf hat with
+a white pom-pom, a red knit sweater with one white snowflake, green trousers, yellow boots, round
+paper pins at shoulders, elbows and knees. The child stays on the right side of the frame and
+interacts with every prop (catches, colors, cuts, folds, raises arms), always cheerful.
+Coloring-book pages are white paper with thick navy line art (reindeer, snowman, Christmas tree,
+gingerbread man) and an English word in rounded capitals printed under each picture.
+Japanese text is heavy black gothic type (Noto Sans JP Black), also cut from paper with thickness
+and shadow; English words are rounded bold capitals in navy. Text pops in with a bouncy overshoot
+(scale 0 → 1.1 → 1.0) or unfolds like an accordion. No hard cuts: every transition is a paper
+gesture (ribbon wipe, folding screen, fold into a gift box, page fold).
+Aspect ratio 7:4 (1260x720), 24fps, 14.4 seconds. No narration; bright, playful sleigh-bell BGM
+with paper foley (rustle, stamp, crayon scribble, snip, fold) on each beat.</pre>
+</section>
+<section class="pbox" id="a">
+  <div class="phead"><div><h3>Part A（0.0–4.6s）</h3><p>導入 → クリスマスセール！ → ぬりえ登場 → ぬって おぼえる</p></div><button type="button" class="copy" data-target="t-a">コピー</button></div>
+  <pre id="t-a">STYLE: Handcrafted paper-cutout stop-motion animation, 3D-rendered papercraft look, Christmas
+craft-corner mood. Every object is a flat piece of 1-2mm thick card stock with visible white paper
+edges and a soft, short drop shadow. Background is a fixed sheet of snow-white textured paper
+(#F3EFE4) with fine fiber grain, a gentle vignette, and a few small paper snowflakes that drift
+down slowly through the whole video. Fixed camera, straight-on, slight top-down tilt; only the
+paper objects move. Palette: Christmas red #D9463F, pine green #2F7A5A, gold #E9B94B, ice blue
+#8CC5E3, kraft brown #C9A97C, ink navy #24243C, off-white card #FBF8F0.
+Character: a paper-doll child about six years old, short brown hair, a green pointed elf hat with
+a white pom-pom, a red knit sweater with one white snowflake, green trousers, yellow boots, round
+paper pins at shoulders, elbows and knees. The child stays on the right side of the frame and
+interacts with every prop (catches, colors, cuts, folds, raises arms), always cheerful.
+Coloring-book pages are white paper with thick navy line art (reindeer, snowman, Christmas tree,
+gingerbread man) and an English word in rounded capitals printed under each picture.
+Japanese text is heavy black gothic type (Noto Sans JP Black), also cut from paper with thickness
+and shadow; English words are rounded bold capitals in navy. Text pops in with a bouncy overshoot
+(scale 0 → 1.1 → 1.0) or unfolds like an accordion. No hard cuts: every transition is a paper
+gesture (ribbon wipe, folding screen, fold into a gift box, page fold).
+Aspect ratio 7:4 (1260x720), 24fps, 14.4 seconds. No narration; bright, playful sleigh-bell BGM
+with paper foley (rustle, stamp, crayon scribble, snip, fold) on each beat.
+
+SEQUENCE (4.6s): A kraft paper gift tag reading &quot;XMAS SALE&quot; flutters down with three paper
+snowflakes and lands tilted; the elf-hat paper-doll child jogs in from the right. A gold paper star
+stamp slams onto it and a red sawtooth starburst reading &quot;クリスマス セール！&quot; bursts out with
+red, green and gold paper flecks; the child hops. The child unfolds a pleated strip into a wide
+white card &quot;こども英語ぬりえ 登場&quot;, and coloring-book pages (REINDEER, SNOWMAN, TREE, COOKIE line
+art) fan out behind it as the child pushes the stack. The child grabs a red-and-white candy-cane
+striped paper ribbon and pulls it across the frame right-to-left, wiping to empty paper. A giant
+red paper crayon rolls in from the left; the child scribbles a line-art apple red in three
+strokes, a green leaf pops on; &quot;ぬって&quot; then &quot;おぼえる&quot; pop in with a bounce, and a small white
+tag &quot;APPLE&quot; pops in under the apple.</pre>
+</section>
+<section class="pbox" id="b">
+  <div class="phead"><div><h3>Part B（4.6–10.2s）</h3><p>30% OFF → プレゼントにぴったり → ギフト箱をツリーの下へ</p></div><button type="button" class="copy" data-target="t-b">コピー</button></div>
+  <pre id="t-b">STYLE: Handcrafted paper-cutout stop-motion animation, 3D-rendered papercraft look, Christmas
+craft-corner mood. Every object is a flat piece of 1-2mm thick card stock with visible white paper
+edges and a soft, short drop shadow. Background is a fixed sheet of snow-white textured paper
+(#F3EFE4) with fine fiber grain, a gentle vignette, and a few small paper snowflakes that drift
+down slowly through the whole video. Fixed camera, straight-on, slight top-down tilt; only the
+paper objects move. Palette: Christmas red #D9463F, pine green #2F7A5A, gold #E9B94B, ice blue
+#8CC5E3, kraft brown #C9A97C, ink navy #24243C, off-white card #FBF8F0.
+Character: a paper-doll child about six years old, short brown hair, a green pointed elf hat with
+a white pom-pom, a red knit sweater with one white snowflake, green trousers, yellow boots, round
+paper pins at shoulders, elbows and knees. The child stays on the right side of the frame and
+interacts with every prop (catches, colors, cuts, folds, raises arms), always cheerful.
+Coloring-book pages are white paper with thick navy line art (reindeer, snowman, Christmas tree,
+gingerbread man) and an English word in rounded capitals printed under each picture.
+Japanese text is heavy black gothic type (Noto Sans JP Black), also cut from paper with thickness
+and shadow; English words are rounded bold capitals in navy. Text pops in with a bouncy overshoot
+(scale 0 → 1.1 → 1.0) or unfolds like an accordion. No hard cuts: every transition is a paper
+gesture (ribbon wipe, folding screen, fold into a gift box, page fold).
+Aspect ratio 7:4 (1260x720), 24fps, 14.4 seconds. No narration; bright, playful sleigh-bell BGM
+with paper foley (rustle, stamp, crayon scribble, snip, fold) on each beat.
+
+SEQUENCE (5.6s): A red paper rectangle with a dotted line slides in from the left. The elf-hat
+child cuts along the line with oversized grey paper scissors, four snips, right to left. The lower
+half tumbles away; the remainder snaps into a price tag with a gold string reading &quot;30% OFF&quot; in
+white, the &quot;30%&quot; very large. A small white card &quot;12/25まで&quot; with a paper holly leaf pops in at the
+upper right; the child kicks the scrap off-frame. The tag flips back and two navy-framed coloring
+pages unfold like a folding screen: left, a reindeer in line art with &quot;REINDEER&quot;; right, the same
+reindeer colored with crayon strokes. The right page rocks gently while &quot;プレゼントに ぴったり&quot;
+types in below. The child folds both pages into a small red gift box with a gold bow and slides it
+right until it settles under a green paper Christmas tree with a gold star; the tree wobbles and
+the star spins; the child walks off to the right.</pre>
+</section>
+<section class="pbox" id="c">
+  <div class="phead"><div><h3>Part C（10.2–14.4s）</h3><p>CTA → ページ折り → ロゴ</p></div><button type="button" class="copy" data-target="t-c">コピー</button></div>
+  <pre id="t-c">STYLE: Handcrafted paper-cutout stop-motion animation, 3D-rendered papercraft look, Christmas
+craft-corner mood. Every object is a flat piece of 1-2mm thick card stock with visible white paper
+edges and a soft, short drop shadow. Background is a fixed sheet of snow-white textured paper
+(#F3EFE4) with fine fiber grain, a gentle vignette, and a few small paper snowflakes that drift
+down slowly through the whole video. Fixed camera, straight-on, slight top-down tilt; only the
+paper objects move. Palette: Christmas red #D9463F, pine green #2F7A5A, gold #E9B94B, ice blue
+#8CC5E3, kraft brown #C9A97C, ink navy #24243C, off-white card #FBF8F0.
+Character: a paper-doll child about six years old, short brown hair, a green pointed elf hat with
+a white pom-pom, a red knit sweater with one white snowflake, green trousers, yellow boots, round
+paper pins at shoulders, elbows and knees. The child stays on the right side of the frame and
+interacts with every prop (catches, colors, cuts, folds, raises arms), always cheerful.
+Coloring-book pages are white paper with thick navy line art (reindeer, snowman, Christmas tree,
+gingerbread man) and an English word in rounded capitals printed under each picture.
+Japanese text is heavy black gothic type (Noto Sans JP Black), also cut from paper with thickness
+and shadow; English words are rounded bold capitals in navy. Text pops in with a bouncy overshoot
+(scale 0 → 1.1 → 1.0) or unfolds like an accordion. No hard cuts: every transition is a paper
+gesture (ribbon wipe, folding screen, fold into a gift box, page fold).
+Aspect ratio 7:4 (1260x720), 24fps, 14.4 seconds. No narration; bright, playful sleigh-bell BGM
+with paper foley (rustle, stamp, crayon scribble, snip, fold) on each beat.
+
+SEQUENCE (4.2s): The red gift box lid pops open and off-white paper unfolds out of it into a
+rounded card: small line &quot;クリスマスセール開催中&quot; with a red underline, big line &quot;今すぐチェック&quot;
+with a green underline, a red paper cup holding three crayons beside it. The elf-hat child pops up
+from behind the card with both arms raised, pom-pom bouncing. A red ribbon curls in from the left
+and a green ribbon from the right, drawing along their paths; two paper snowflakes drift past. The
+whole scene folds over like a page turning on its vertical center, revealing plain snow-white
+paper with a heavy navy rounded wordmark &quot;KIDS ENGLISH COLORING&quot; centered and a small red
+&quot;30% OFF&quot; paper tag hanging from its last letter. Hold completely still for 2 seconds.</pre>
+</section>
+
+<footer>元の解析：H3 Max Turbo 告知動画（14.4s, 1260×720）。タイムコードは元動画に合わせた設計値です。</footer>
+</div>
+<script>
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+  const t=document.getElementById(b.dataset.target).textContent;
+  try{ await navigator.clipboard.writeText(t); b.textContent='コピーしました'; b.classList.add('done'); }
+  catch(e){ const r=document.createRange(); r.selectNodeContents(document.getElementById(b.dataset.target)); const s=getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent='選択しました（Ctrl+C）'; }
+  setTimeout(()=>{ b.textContent='コピー'; b.classList.remove('done'); },1800);
+}));
+</script>
