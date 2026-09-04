@@ -18,7 +18,9 @@ h3-max-turbo-video/
 ├── prompts.md         ← AI動画生成で再現するためのプロンプト（Seedance 2.0 / Higgsfield 向け）
 ├── storyboard.html    ← 絵コンテ（ブラウザで開くと18枚のキーフレームと構成が見られる）
 ├── animation.html     ← Web版の再現アニメーション（文字を書き換えて別商品にも流用できる）
-└── frames/            ← 動画から切り出したキーフレーム18枚（0.3秒〜13.5秒）
+├── frames/            ← 動画から切り出したキーフレーム18枚（0.3秒〜13.5秒）
+├── audio/make_audio.py ← BGMと効果音を自動で合成して動画に乗せるスクリプト（外部音源不要）
+└── variants/          ← 別商品向けの派生版（xmas-coloring-book：Japan Coloring Book クリスマスセール）
 ```
 
 ## 再現の3つのルート
